@@ -4,7 +4,4 @@
 #### Created by Trinity Hutson
 
 ## Duck X-ing
-    _
-   ('=   _     _     _     _     _     _     _
-   /_)  >')   >')   >')   >')   >')   >')   >')
-  /||  <(_)> <(_)> <(_)> <(_)> <(_)> <(_)> <(_)>
+:duck: :duck: :duck: :duck: :duck: :duck: :duck: :duck: :duck: 
