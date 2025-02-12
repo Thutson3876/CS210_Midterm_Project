@@ -8,6 +8,7 @@ ExportedObj/
 *.sln
 *.suo
 *.tmp
+*.user
 
 /.idea/
 /.vs/
