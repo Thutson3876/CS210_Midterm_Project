@@ -10,21 +10,45 @@ struct School {
     string state;
     string county;
 
-    School* next;
+    School* next = nullptr;
+
+    School() {
+
+    }
+
+    School(School* other) {
+        name = other->name;
+        address = other->address;
+        city = other->city;
+        state = other->state;
+        county = other->county;
+    }
 };
 
 class SchoolList
 {
+private:
+    int count = 0;
+    School* head = nullptr;
+
 public:
+    SchoolList();
+
+    ~SchoolList();
+
 	void insertFirst(School school);
 
 	void insertLast(School school);
 
 	void deleteByName(string name);
 
-	void findByName(string name);
+	School findByName(string name);
 
 	void display();
+
+    int size();
+
+    void deleteEntry(School* entry);
 
 };
 

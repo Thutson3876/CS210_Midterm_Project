@@ -18,9 +18,6 @@
     <ClCompile Include="CSVReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="School.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SchoolList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
