@@ -48,15 +48,20 @@ void SchoolList::deleteByName(string name) {
 	School* temp = head;
 
 	if (temp->name == name) {
+		delete temp;
 		head = head->next;
 		count--;
+
 		return;
 	}
 
 	while (temp->next != nullptr) {
 		if (temp->next->name == name) {
+			delete temp->next;
+
 			temp->next = temp->next->next;
 			count--;
+			
 			return;
 		}
 
