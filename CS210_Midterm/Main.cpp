@@ -20,4 +20,6 @@ int main() {
 	list.display();
 	println("");
 	list.displayMenu();
+	println("List:");
+	list.display();
 }

@@ -52,12 +52,16 @@ void SchoolList::insertLast(School school) {
 
 School SchoolList::deleteByName(string name) {
 	School* temp = head;
+	School* toDelete;
 	School returnVal;
 
 	if (temp->name == name) {
 		returnVal = temp;
+		toDelete = temp;
+		head = toDelete->next;
+
 		delete temp;
-		head = head->next;
+		
 		count--;
 
 		return returnVal;
@@ -66,9 +70,11 @@ School SchoolList::deleteByName(string name) {
 	while (temp->next != nullptr) {
 		if (temp->next->name == name) {
 			returnVal = temp->next;
-			delete temp->next;
+			toDelete = temp->next;
+			temp->next = toDelete->next;
 
-			temp->next = temp->next->next;
+			delete toDelete;
+
 			count--;
 			
 			return returnVal;

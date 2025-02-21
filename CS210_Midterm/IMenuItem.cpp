@@ -31,6 +31,7 @@ int IMenuItem::input(vector<string> choices) {
 	while (!tryParse(choice, value, idx - 1))
 	{
 		print("Invalid input. Enter a valid number: ");
+		cin.ignore();
 		cin >> choice;
 	}
 
