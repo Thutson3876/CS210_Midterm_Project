@@ -129,10 +129,16 @@
   <ItemGroup>
     <ClCompile Include="CSVReader.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="IMenuItem.cpp" />
+    <ClCompile Include="Utils.cpp" />
     <ClCompile Include="SchoolList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IMenuItem.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="SchoolList.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

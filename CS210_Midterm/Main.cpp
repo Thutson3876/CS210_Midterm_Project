@@ -1,4 +1,5 @@
 #include "SchoolList.h"
+#include "Utils.cpp"
 #include "CSVReader.cpp"
 
 int main() {
@@ -17,4 +18,6 @@ int main() {
 	}
 	
 	list.display();
+	println("");
+	list.displayMenu();
 }

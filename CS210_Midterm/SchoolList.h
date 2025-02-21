@@ -1,14 +1,16 @@
 #pragma once
 #include <string>
+#include "IMenuItem.h"
+#include "Utils.cpp"
 
 using namespace std;
 
 struct School {
-    string name;
-    string address;
-    string city;
-    string state;
-    string county;
+    string name = "";
+    string address = "";
+    string city = "";
+    string state = "";
+    string county = "";
 
     School* next = nullptr;
 
@@ -23,13 +25,23 @@ struct School {
         state = other->state;
         county = other->county;
     }
+
+    void print() {
+        println("Name: " + name);
+        println("Address: " + address);
+        println("City: " + city);
+        println("County: " + county);
+        println("State: " + state);
+    }
 };
 
-class SchoolList
+class SchoolList : public IMenuItem
 {
 private:
     int count = 0;
     School* head = nullptr;
+
+    void deleteEntry(School* entry);
 
 public:
     SchoolList();
@@ -40,7 +52,7 @@ public:
 
 	void insertLast(School school);
 
-	void deleteByName(string name);
+	School deleteByName(string name);
 
 	School findByName(string name);
 
@@ -48,8 +60,10 @@ public:
 
     int size();
 
-    void deleteEntry(School* entry);
+    // IMenuItem Methods
+    bool processInput(int choice);
 
+    void displayItems();
 };
 
 
