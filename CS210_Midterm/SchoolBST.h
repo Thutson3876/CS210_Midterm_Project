@@ -17,6 +17,10 @@ class SchoolBST : public IMenuItem
 private:
 	SchoolNode* head;
 
+	SchoolNode* getSuccessor(SchoolNode* node);
+
+	SchoolNode* deleteNode(SchoolNode* node, string name);
+
 	void deleteNodes(SchoolNode* node);
 
 	SchoolNode* insertValue(SchoolNode* node, School value);

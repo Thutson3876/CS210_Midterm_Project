@@ -39,7 +39,6 @@ SchoolNode* SchoolBST::insertNode(SchoolNode* node, SchoolNode* newValue) {
 	return node;
 }
 
-// left and right are null for returned values
 SchoolNode* SchoolBST::findNode(SchoolNode* node, string name) {
 	if (node == nullptr || node->data.name == name) 
 		return node;
@@ -51,50 +50,53 @@ void SchoolBST::insert(School school) {
 	head = insertValue(head, school);
 }
 
-// doesnt work when deleting head or tail
-School SchoolBST::deleteByName(string name) {
-	// temp's children are both null
-	SchoolNode* temp = findNode(head, name);
-	SchoolNode* parent = nullptr;
-	bool isLeft = false;
-	bool isHead = true;
+SchoolNode* SchoolBST::getSuccessor(SchoolNode* node) {
+	node = node->right;
 
-	while (temp != nullptr) {
-		if (temp->data.name == name) {
-			break;
+	while (node != nullptr && node->left != nullptr)
+		node = node->left;
+
+	return node;
+}
+
+SchoolNode* SchoolBST::deleteNode(SchoolNode* node, string name) {
+	if (node == nullptr)
+		return nullptr;
+
+	if (node->data.name > name)
+		node->left = deleteNode(node->left, name);
+	else if (node->data.name < name)
+		node->right = deleteNode(node->right, name);
+	else {
+		if (node->left == nullptr) {
+			SchoolNode* temp = node->right;
+
+			delete node;
+
+			return temp;
 		}
 
-		isLeft = temp->data.name < name;
-		parent = temp;
+		if (node->right == nullptr) {
+			SchoolNode* temp = node->left;
 
-		temp = isLeft ? temp->left : temp->right;
+			delete node;
 
-		if (isHead)
-			isHead = !isHead;
+			return temp;
+		}
+
+		SchoolNode* successor = getSuccessor(node);
+
+		node->data = successor->data;
+		node->right = deleteNode(node->right, successor->data.name);
 	}
 
-	if (temp == nullptr)
-		return School();
+	return node;
+}
 
-	if (parent != nullptr) {
-		if (isLeft)
-			parent->left = nullptr;
-		else
-			parent->right = nullptr;
-	}
-
-	School returnVal = temp->data;
-	// these being deleted when temp is deleted?
-	SchoolNode* tempL = temp->left;
-	SchoolNode* tempR = temp->right;
-
-	if (tempL != nullptr)
-		head = insertNode(head, tempL);
-
-	if (tempL != nullptr)
-		head = insertNode(head, tempR);
-
-	delete temp;
+School SchoolBST::deleteByName(string name) {
+	School returnVal = findByName(name);
+	
+	deleteNode(head, name);
 
 	return returnVal;
 }
