@@ -1,5 +1,4 @@
 #include "SchoolBST.h"
-#include "IMenuItem.h"
 #include <iostream>
 #include <functional>
 
@@ -192,6 +191,10 @@ bool SchoolBST::processInput(int choice) {
 		println(val + " not found.");
 
 	return true;
+}
+
+void SchoolBST::insertItem(School school) {
+	insert(school);
 }
 
 #pragma endregion

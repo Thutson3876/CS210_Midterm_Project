@@ -1,5 +1,4 @@
 #include "SchoolList.h"
-#include "IMenuItem.h"
 #include <iostream>
 #include <functional>
 
@@ -154,6 +153,10 @@ bool SchoolList::processInput(int choice) {
 		println(val + " not found.");
 
 	return true;
+}
+
+void SchoolList::insertItem(School school) {
+	insertLast(school);
 }
 
 #pragma endregion

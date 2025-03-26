@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
-#include "SchoolList.h"
+#include "School.h"
+#include "IMenuItem.h"
 #include "Utils.cpp"
 
 struct SchoolNode {
@@ -54,5 +55,7 @@ public:
 	bool processInput(int choice);
 
 	void displayItems();
+
+	void insertItem(School school);
 };
 

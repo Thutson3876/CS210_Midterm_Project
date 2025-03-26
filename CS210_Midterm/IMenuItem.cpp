@@ -35,8 +35,6 @@ int IMenuItem::input(vector<string> choices) {
 		cin >> choice;
 	}
 
-	//print(optionOutput);
-	//cin >> choice;
 	println("");
 	return value;
 }

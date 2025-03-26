@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include "School.h"
 
 using namespace std;
 
@@ -22,6 +23,8 @@ public:
 	void displayMenu();
 
 	virtual void displayItems() = 0;
+
+	virtual void insertItem(School school) = 0;
 
 };
 
