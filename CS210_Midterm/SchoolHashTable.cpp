@@ -11,7 +11,8 @@ void SchoolHashTable::insert(School school) {
 
 	entries[idx]->push_back(newEntry);
 
-	if (entries[idx]->size() > maxChainSize || entries.size() > (float)tableSize / 2.0f)
+	float usage = (float)tableSize / 2.0f;
+	if (entries[idx]->size() > maxChainSize)
 		resize();
 }
 
@@ -20,18 +21,21 @@ School SchoolHashTable::deleteByName(string name) {
 	School* temp;
 
 	int idx = hashFunction(name);
-	vector<School*> list = *entries[idx];
-	if (list.empty())
+	if (entries[idx] == nullptr)
 		return School();
 
-	auto it = std::find_if(list.begin(), list.end(), [&name](School* s) { return s->name == name; });
-	if (it == list.end())
+	vector<School*>* list = entries[idx];
+	if (list->empty())
+		return School();
+
+	auto it = std::find_if(list->begin(), list->end(), [&name](School* s) { return s->name == name; });
+	if (it == list->end())
 		return School();
 
 	temp = *it;
 	returnVal = *temp;
 
-	entries[idx]->erase(it);
+	list->erase(it);
 
 	delete temp;
 
@@ -60,9 +64,13 @@ School SchoolHashTable::findByName(string name) {
 }
 
 void SchoolHashTable::display() {
-	for (auto e : entries)
+	for (auto e : entries) {
+		if (e == nullptr)
+			continue;
+
 		for (School* s : *e)
 			cout << s->name << " -> ";
+	}
 
 	cout << "nullptr" << endl;
 }

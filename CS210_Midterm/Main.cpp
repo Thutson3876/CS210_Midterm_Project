@@ -17,7 +17,7 @@ void readToMenuItem(vector<vector<string>> data, IMenuItem &menuItem) {
 		menuItem.insertItem(temp);
 	}
 
-	menuItem.displayMenu();
+	menuItem.displayItems();
 	println("");
 	menuItem.displayMenu();
 	println("");
