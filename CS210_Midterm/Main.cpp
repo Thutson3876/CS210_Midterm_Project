@@ -3,6 +3,7 @@
 #include "SchoolHashTable.h"
 #include "Utils.cpp"
 #include "CSVReader.cpp"
+#include "timer.h"
 
 void readToMenuItem(vector<vector<string>> data, IMenuItem &menuItem) {
 
@@ -46,24 +47,8 @@ void readToList(vector<vector<string>> data) {
 }
 
 void readToBST(vector<vector<string>> data) {
-	SchoolBST bst = SchoolBST();
-
-	for (int i = 1; i < data.size(); i++) {
-		School temp = School();
-		temp.name = data[i][0];
-		temp.address = data[i][1];
-		temp.city = data[i][2];
-		temp.state = data[i][3];
-		temp.county = data[i][4];
-
-		bst.insert(temp);
-	}
-
-	bst.displayInOrder();
-	println("");
-	bst.displayMenu();
-	println("");
-	bst.displayInOrder();
+	auto item = SchoolBST();
+	readToMenuItem(data, item);
 }
 
 void readToHashTable(vector<vector<string>> data) {
@@ -71,8 +56,19 @@ void readToHashTable(vector<vector<string>> data) {
 	readToMenuItem(data, table);
 }
 
+void readDataFolder(vector<vector<vector<string>>>& entries, const string path, const vector<string>& sourceFileNames) {
+	for (auto& f : sourceFileNames) {
+		entries.push_back(CSVReader::readCSV(path + f));
+	}
+}
+
 int main() {
-	vector<vector<string>> data = CSVReader::readCSV("data.csv");
+	vector<vector<vector<string>>> data(10);
+	vector<string> sourceFileNames = { 
+		""
+	};
+
+
+	readDataFolder(data, "/Data/", sourceFileNames);
 	
-	readToHashTable(data);
 }
