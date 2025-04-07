@@ -27,4 +27,35 @@ public:
         file.close();
         return data;
     }
+
+    static void writeCSVHeader(const string& filename, const string& dataStructureType, const string& functionType, const string& timeTaken) {
+        ofstream file;
+        file.open(filename);
+
+        file << dataStructureType << "," << functionType << "," << timeTaken;
+
+        file.close();
+    }
+
+    static void writeCSVNewLine(const string& filename, const string& data) {
+        ofstream file;
+        file.open(filename, ios::out | ios::app);
+
+        file << ",\n";
+
+        file << data;
+
+        file.close();
+    }
+
+    static void writeCSV(const string& filename, const string& dataStructureType, const string& functionType, const double& timeTaken) {
+        ofstream file;
+        file.open(filename, ios::out | ios::app);
+
+        file << ",\n";
+
+        file << dataStructureType << "," << functionType << "," << timeTaken;
+
+        file.close();
+    }
 };

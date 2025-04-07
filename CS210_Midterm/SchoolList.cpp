@@ -20,7 +20,8 @@ SchoolList::SchoolList() {
 }
 
 SchoolList::~SchoolList() {
-	deleteEntry(head);
+	// This causes stack overflow when using massive data sets
+	//deleteEntry(head);
 }
 
 void SchoolList::insertFirst(School school) {
@@ -53,6 +54,9 @@ School SchoolList::deleteByName(string name) {
 	School* temp = head;
 	School* toDelete;
 	School returnVal;
+
+	if (temp == nullptr)
+		return School();
 
 	if (temp->name == name) {
 		returnVal = temp;
@@ -87,6 +91,9 @@ School SchoolList::deleteByName(string name) {
 
 School SchoolList::findByName(string name) {
 	School* temp = head;
+	if (temp == nullptr)
+		return School();
+
 	while (temp->name != name) {
 		temp = temp->next;
 

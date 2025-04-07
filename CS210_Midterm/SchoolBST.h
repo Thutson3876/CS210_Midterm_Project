@@ -41,9 +41,9 @@ public:
 
 	void insert(School school);
 
-	School deleteByName(string name);
-
 	School findByName(string name);
+
+	School deleteByName(string name);
 
 	void displayInOrder();
 

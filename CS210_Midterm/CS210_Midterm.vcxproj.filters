@@ -33,6 +33,12 @@
     <ClCompile Include="IMenuItem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SchoolBST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SchoolHashTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SchoolList.h">
@@ -47,5 +53,20 @@
     <ClInclude Include="Utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="School.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SchoolBST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SchoolHashTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data.csv" />
   </ItemGroup>
 </Project>

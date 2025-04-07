@@ -11,7 +11,6 @@ void SchoolHashTable::insert(School school) {
 
 	entries[idx]->push_back(newEntry);
 
-	float usage = (float)tableSize / 2.0f;
 	if (entries[idx]->size() > maxChainSize)
 		resize();
 }
